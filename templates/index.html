@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>드라마 감상평 기록소</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>📺 드라마 감상평 기록소</h1>
+
+  <div class="sort-buttons">
+    <a href="/?sort=date" {% if sort == "date" %}class="active"{% endif %}>🕒 최신순</a>
+    <a href="/?sort=rating" {% if sort == "rating" %}class="active"{% endif %}>⭐ 별점순</a>
+  </div>
+
+  <a href="/write" class="write-button">➕ 리뷰 작성하러 가기</a>
+
+  <div class="review-list">
+    {% for review in reviews %}
+      <div class="card">
+        <a href="/review/{{ review.id }}">
+          <img src="/static/{{ review.poster }}" alt="포스터" class="poster">
+          <h3>{{ review.title }}</h3>
+          <p>⭐ {{ review.rating }}점</p>
+          <p>{{ review.comment }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

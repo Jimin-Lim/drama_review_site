@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ review.title }} - 상세보기</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>🎬 {{ review.title }}</h1>
+  <img src="/static/{{ review.poster }}" alt="포스터" class="poster">
+  <p><strong>감독:</strong> {{ review.director }}</p>
+  <p><strong>별점:</strong> {{ review.rating }}점</p>
+  <p><strong>한줄평:</strong> {{ review.comment }}</p>
+  <p><strong>상세 내용:</strong></p>
+  <p>{{ review.detail }}</p>
+  <p><strong>작성자:</strong> {{ review.author or "작성자 없음" }}</p>
+  <p><em>작성일: {{ review.created_at }} (KST)</em></p>
+
+  <form action="/delete/{{ review.id }}" method="POST" onsubmit="return confirm('정말 삭제하시겠어요?');">
+    <button type="submit">🗑 삭제하기</button>
+  </form>
+
+  <div class="button-group">
+    <a href="/edit/{{ review.id }}" class="edit-button">✏ 수정하기</a>
+    <a href="/" class="back-button">← 목록으로</a>
+  </div>
+</body>
+</html>

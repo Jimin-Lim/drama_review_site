@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>리뷰 작성</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>✏️ 드라마 리뷰 작성</h1>
+  <form action="/save" method="POST" enctype="multipart/form-data">
+    <p>
+      <label>드라마 포스터: </label>
+      <input type="file" name="poster" required>
+    </p>
+    <p>
+      <label>드라마 제목: </label>
+      <input type="text" name="title" required>
+    </p>
+    <p>
+      <label>감독: </label>
+      <input type="text" name="director" required>
+    </p>
+    <p>
+      <label>작성자 이름: </label>
+      <input type="text" name="author" required>
+    </p>
+    <p>
+      <label>별점: </label>
+      <select name="rating">
+        <option value="1">⭐️</option>
+        <option value="2">⭐️⭐️</option>
+        <option value="3">⭐️⭐️⭐️</option>
+        <option value="4">⭐️⭐️⭐️⭐️</option>
+        <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+      </select>
+    </p>
+    <p>
+      <label>한줄평: </label>
+      <input type="text" name="comment" required>
+    </p>
+    <p>
+      <label>상세 내용: </label><br>
+      <textarea name="detail" rows="6" cols="40"></textarea>
+    </p>
+    <button type="submit">저장</button>
+    <a href="/">← 목록으로</a>
+  </form>
+</body>
+</html>

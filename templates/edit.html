@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ review.title }} - 리뷰 수정</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>✏ 리뷰 수정하기</h1>
+
+  <form action="/update/{{ review.id }}" method="POST" enctype="multipart/form-data">
+    <p>제목: <input type="text" name="title" value="{{ review.title }}" required></p>
+    <p>감독: <input type="text" name="director" value="{{ review.director }}" required></p>
+    <p>별점: <input type="number" name="rating" min="1" max="5" value="{{ review.rating }}" required></p>
+    <p>한줄평: <input type="text" name="comment" value="{{ review.comment }}" required></p>
+    <p>상세 내용:<br>
+      <textarea name="detail" rows="5" cols="50" required>{{ review.detail }}</textarea>
+    </p>
+    <p>포스터 이미지 변경 (선택): <input type="file" name="poster"></p>
+    <button type="submit">💾 수정 완료</button>
+  </form>
+
+  <a href="/">← 목록으로</a>
+</body>
+</html>
