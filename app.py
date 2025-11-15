@@ -98,7 +98,7 @@ def review_detail(review_id):
     if row:
         review = {
             'id': row[0],
-            'title': row[1],           # ✅ 여기 수정됨!
+            'title': row[1],          
             'director': row[2],
             'rating': row[3],
             'comment': row[4],
